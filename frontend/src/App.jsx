@@ -60,8 +60,8 @@ export default function App() {
     try {
       setLoading(true);
       const [zoneRes, tenderRes] = await Promise.all([
-        fetch('http://localhost:5000/api/zones/heatmap'),
-        fetch('http://localhost:5000/api/tenders')
+        fetch('https://real-state-investment.onrender.com/api/zones/heatmap'),
+        fetch('https://real-state-investment.onrender.com/api/tenders')
       ]);
       const zoneData = await zoneRes.json();
       const tenderData = await tenderRes.json();
@@ -82,7 +82,7 @@ export default function App() {
     setIsGenerating(true);
     setSelectedZone(null); // Clear sidebar during generation
     try {
-      const res = await fetch('http://localhost:5000/api/generate_region', {
+      const res = await fetch('https://real-state-investment.onrender.com/api/generate_region', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ lat, lng })
